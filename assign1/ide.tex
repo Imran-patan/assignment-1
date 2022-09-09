@@ -1,0 +1,187 @@
+\def\mytitle{Boolean Expression to its simplest form using K-map}
+\def\mykeywords{}
+\def\myauthor{patan Imran}
+\def\contact{imranpathan0491@gmail.com}
+\def\mymodule{Future Wireless Communication}
+\documentclass[10pt, a4paper]{article}
+\usepackage[a4paper,outer=1.5cm,inner=1.5cm,top=1.75cm,bottom=1.5cm]{geometry}
+\twocolumn
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage[colorlinks,linkcolor={black},citecolor={blue!80!black},urlcolor={blue!80!black}]{hyperref}
+\usepackage[parfill]{parskip}
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{watermark}
+\usepackage{karnaugh-map}
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{algorithm2e}
+
+\titlespacing{\subsection}{0pt}{\parskip}{-3pt}
+\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\paragraph}{0pt}{\parskip}{\parskip}
+\newcommand{\figuremacro}[5]{
+    \begin{figure}[#1]
+        \centering
+        \includegraphics[width=#5\columnwidth]{#2}
+        \caption[#3]{\textbf{#3}#4}
+        \label{fig:#2}
+    \end{figure}
+}
+
+\lstset{
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\thiswatermark{\centering \put(0,-90.0){\includegraphics[scale=0.04]{IITH.png}} }
+\title{\mytitle}
+\author{\myauthor\hspace{1em}\\\contact\\IITH\hspace{0.5em}-\hspace{0.5em}\mymodule}
+\date{}
+\hypersetup{pdfauthor=\myauthor,pdftitle=\mytitle,pdfkeywords=\mykeywords}
+\sloppy
+\begin{document}
+  \maketitle
+\tableofcontents
+
+\section{Introduction}
+K maps are used to  Simplify  Boolean Expressions the given Expression to solve 
+F(s3,s2,s1,s0)=(1,5,6,7,11,12,13,15)
+
+        
+
+
+
+\section{karnaugh-map}
+        \begin{karnaugh-map}[4][4][1][$s3s2$][$s1s0$]
+        \minterms{1,5,6,7,11,12,13,15}
+        \maxterms{0,2,3,4,8,9,10,14}
+        \implicant{1}{5}
+        \implicant{7}{6}
+        \implicant{12}{13}
+        \implicant{15}{11}
+        \end{karnaugh-map}
+
+        F=s1's2s3+s1's0s3'+s1s2s3'+s0s1s3
+
+
+
+
+\section{Components}
+
+
+
+\begin{table}[htbp]
+ \begin{center}
+    \begin{tabular}{|l|c|c|c|c|c|c} \hline \textbf{Component}
+  & \textbf{value} & \textbf{quantity} \\
+ \hline
+Resistor & 220 ohm & 1 \\ \hline
+Arduino & UNO & 1 \\ \hline
+LED &  & 1 \\ \hline
+Bread board &  & 1 \\ \hline
+Jumper wires & M-M & 10\\ \hline
+\end{tabular}   
+\end{center}
+\caption{\label{table:dummytable} }
+\end{table}
+
+
+\section{Truth table for given expression}
+.
+\begin{table}[htbp]
+ \begin{center}
+    \begin{tabular}{|l|c|c|c|c|c|c|c|c} \hline \textbf{s0}
+  & \textbf{s1} & \textbf{s2} & \textbf{s3}& \textbf{F} \\
+ \hline
+        0&0&0&0&0 \\
+        \hline
+        0&0&0&1&1 \\
+        \hline
+        0&0&1&0&0 \\
+        \hline
+        0&0&1&1&0 \\
+        \hline
+        0&1&0&0&0 \\
+        \hline
+        0&1&0&1&1 \\
+        \hline
+        0&1&1&0&1 \\
+        \hline
+        0&1&1&1&1 \\
+        \hline
+        1&0&0&0&0 \\
+        \hline
+        1&0&0&1&0 \\
+        \hline
+        1&0&1&0&0 \\
+        \hline
+        1&0&1&1&1 \\
+        \hline
+        1&1&0&0&1 \\
+        \hline
+        1&1&0&1&1 \\
+        \hline
+        1&1&1&0&0 \\
+        \hline
+        1&1&1&1&1 \\
+        \hline
+\end{tabular}   
+\end{center}
+\caption{\label{table:dummytable} }
+\end{table}
+
+
+
+
+
+
+
+\section{Connections and results}
+
+
+
+Also make connections to arduino UNO ,led and inputs based on table3. 
+
+\begin{table}[htbp]
+ \begin{center}
+    \begin{tabular}{|l|c|c|c|c|c|c|c|c} \hline \textbf{Arduino UNO}
+  & \textbf{2} & \textbf{3} & \textbf{4}& \textbf{5}& \textbf{8}& \textbf{gnd} \\
+ \hline
+Input&s0&s1&s2&s3&&\\ \hline
+led&&&&&+&- \\ \hline
+\end{tabular}   
+\end{center}
+\caption{\label{table:dummytable} }
+\end{table}
+
+
+\begin{table}[htbp]
+ \begin{center}
+    \begin{tabular}{|l|c|c|c|c|c|c|c|c} \hline \textbf{Sample input}
+  & \textbf{s0} & \textbf{s1} & \textbf{s2}& \textbf{s3}& \textbf{LED } \\
+ \hline
+1&0&0&0&0&ON\\ \hline
+2&0&0&1&0&OFF \\ \hline
+\end{tabular}   
+\end{center}
+\caption{\label{table:dummytable} }
+\end{table}
+
+\subsection{Code Link}
+\vspace{5mm}
+\begin{lstlisting}
+https://github.com/Imran-patan/assignment-1/blob/main/assign.cpp
+\end{lstlisting}
+\section{NANDgate}
+
+ \begin{center}
+\includegraphics[scale=1]{NANDgate.jpeg}
+\end{center}
+
+\end{document}
